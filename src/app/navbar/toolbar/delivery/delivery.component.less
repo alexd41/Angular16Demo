@@ -1,0 +1,14 @@
+.delivery-tray {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-top: 0.5em;
+    button {
+        display: flex;
+        align-items: center;
+        border: none;
+        &:not(:last-child){
+            border-right: solid 2px grey;
+        }
+    }
+}

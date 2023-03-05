@@ -5,7 +5,8 @@
             <app-lhs></app-lhs>
         </div>
         <div class="col-sm-8">
-            <app-document></app-document>
+            <app-document (mouseup)="openMenu()"></app-document>
+            <app-selected-text-menu></app-selected-text-menu>
         </div>
         <div class="col-sm-2">
             <app-rhs></app-rhs>
