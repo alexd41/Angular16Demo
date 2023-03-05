@@ -15,9 +15,10 @@ export class AppComponent {
   openMenu(){
     this.selectedTextMenuService.showSelectedTextMenu.set(!!window.getSelection()?.toString());
     
-    if(this.selectedTextMenuService.showSelectedTextMenu())
+    if(this.selectedTextMenuService.showSelectedTextMenu()){
       this.selectedTextMenuService.lastSelectedText.set(window.getSelection()!.toString());
-      
-    window.getSelection()!.removeAllRanges();
+      window.getSelection()!.removeAllRanges();
+    }
+    
   }
 }
