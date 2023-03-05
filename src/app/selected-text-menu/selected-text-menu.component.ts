@@ -55,6 +55,7 @@ export class SelectedTextMenuComponent {
     clearButton.style.cursor = 'pointer';
     clearButton.addEventListener('click', () => {
       highlightElement.outerHTML = highlightElement.innerHTML;
+      clearButton.remove();
     });
     highlightElement.appendChild(clearButton);
     this.closeMenu();
