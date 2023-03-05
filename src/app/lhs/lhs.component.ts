@@ -22,4 +22,8 @@ export class LhsComponent {
   public get emboldenedText(): string {
     return this.lhsService.emboldenedText();
   }
+
+  public clearText(): void {
+    this.lhsService.textToDisplay.set('');
+  }
 }

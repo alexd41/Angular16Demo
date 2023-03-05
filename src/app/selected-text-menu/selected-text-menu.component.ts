@@ -21,16 +21,46 @@ export class SelectedTextMenuComponent {
 
   closeMenu() {
     this.selectedTextMenuService.showSelectedTextMenu.set(false);
+    window.getSelection()?.removeAllRanges();
   }
 
-  sendToLhs() {
+  sendToLhs(): void {
     this.lhsService.textToDisplay.set(this.selectedTextMenuService.lastSelectedText());
     this.closeMenu();
   }
 
-  sendToBoth() {
+  sendToRhs(): void {
+    this.rhsService.setTextToDisplay(this.selectedTextMenuService.lastSelectedText());
+    this.closeMenu();
+  }
+
+  sendToBoth(): void {
     this.lhsService.textToDisplay.set(this.selectedTextMenuService.lastSelectedText());
     this.rhsService.setTextToDisplay(this.selectedTextMenuService.lastSelectedText());  
     this.closeMenu();
   }
+
+  highlightYellow(): void {
+    const selection = window.getSelection();
+    const range = selection?.getRangeAt(0);
+
+    const highlightElement = document.createElement('span');
+    highlightElement.classList.add('highlight');
+    highlightElement.style.backgroundColor = 'yellow';
+
+    range?.surroundContents(highlightElement);
+    const clearButton = document.createElement('mat-icon');
+    clearButton.innerHTML = 'clear'; // mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color
+    clearButton.classList.add('material-icons');
+    clearButton.style.cursor = 'pointer';
+    clearButton.addEventListener('click', () => {
+      highlightElement.outerHTML = highlightElement.innerHTML;
+    });
+    highlightElement.appendChild(clearButton);
+    this.closeMenu();
+    }
+
+    removeHighlight() {
+
+    }
 }

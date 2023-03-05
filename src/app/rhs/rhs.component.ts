@@ -39,4 +39,8 @@ export class RhsComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
+  clearText(): void {
+    this.rhsService.setTextToDisplay('');
+  }
+
 }

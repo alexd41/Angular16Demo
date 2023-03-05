@@ -1,5 +1,8 @@
 <div class="container">
-    <h4>Right Hand Side</h4>
+    <div class="header">
+        <h4>RxJS Side</h4>
+        <button (click)="clearText()"><mat-icon>clear</mat-icon></button>
+    </div>
     <hr>
     <ng-container *ngIf="textBold; else normal">
         <p [innerHTML]="emboldenedText"></p>
