@@ -1,1 +1,10 @@
-<p>{{textToDisplay}}</p>
+<div class="container">
+    <h4>Right Hand Side</h4>
+    <hr>
+    <ng-container *ngIf="textBold; else normal">
+        <p [innerHTML]="emboldenedText"></p>
+    </ng-container>
+    <ng-template #normal>
+        <p>{{textToDisplay}}</p>
+    </ng-template>
+</div>

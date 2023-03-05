@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RhsService } from './rhs.service';
 import { Subscription } from 'rxjs';
+import { DeliveryService } from '../navbar/toolbar/delivery/delivery.service';
 
 @Component({
   selector: 'app-rhs',
@@ -9,21 +10,33 @@ import { Subscription } from 'rxjs';
 })
 export class RhsComponent implements OnInit, OnDestroy {
   public textToDisplay!: string;
-  public subscription: Subscription = new Subscription();
+  public emboldenedText!: string;
+  public subscriptions: Subscription = new Subscription();
+  public textBold!: boolean;
 
-  constructor(private rhsService: RhsService) {
+  constructor(private rhsService: RhsService, private deliveryService: DeliveryService) {
   }
   
   ngOnInit(): void {
-    this.subscription.add(
+    this.subscriptions.add(
       this.rhsService.textToDisplay$().subscribe((text: string) => {
         this.textToDisplay = text;
+      })
+    );
+    this.subscriptions.add(
+      this.rhsService.emboldenedText$().subscribe((text: string) => {
+        this.emboldenedText = text;
+      })
+    );
+    this.subscriptions.add(
+      this.deliveryService.fontBoldSubject$().subscribe((bold: boolean) => {
+        this.textBold = bold;
       })
     );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
 }
