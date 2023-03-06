@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToolbarComponent } from './toolbar.component';
+import { TwoComponent } from './two.component';
 
-describe('ToolbarComponent', () => {
-  let component: ToolbarComponent;
-  let fixture: ComponentFixture<ToolbarComponent>;
+describe('TwoComponent', () => {
+  let component: TwoComponent;
+  let fixture: ComponentFixture<TwoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ]
+      declarations: [ TwoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToolbarComponent);
+    fixture = TestBed.createComponent(TwoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

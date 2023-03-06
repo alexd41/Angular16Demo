@@ -1,35 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { DocumentComponent } from './document/document.component';
-import { RhsComponent } from './rhs/rhs.component';
-import { LhsComponent } from './lhs/lhs.component';
-import { ToolbarComponent } from './navbar/toolbar/toolbar.component';
-import { DeliveryComponent } from './navbar/toolbar/delivery/delivery.component';
-import { SelectedTextMenuComponent } from './selected-text-menu/selected-text-menu.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { OneComponent } from './homepage/one/one.component';
+import { TwoComponent } from './homepage/two/two.component';
+import { ButtonComponent } from './homepage/one/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    DocumentComponent,
-    RhsComponent,
-    LhsComponent,
-    ToolbarComponent,
-    DeliveryComponent,
-    SelectedTextMenuComponent
+    HomepageComponent,
+    OneComponent,
+    TwoComponent,
+    ButtonComponent
   ],
   imports: [
-    BrowserModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatIconModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
