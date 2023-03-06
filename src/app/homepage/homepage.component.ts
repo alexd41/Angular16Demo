@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <ng-container *ngIf="logDetectChanges()"></ng-container>
     <button (click)="({})">HomeComponent</button>
-    <p> Home Page</p>
+    <p> Home</p>
     <div class="content">
       <div class="one"> <app-one></app-one> </div>
       <div class="two"> <app-two></app-two> </div>

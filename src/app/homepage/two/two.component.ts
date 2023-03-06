@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-two',
   template: `
     <ng-container *ngIf="logDetectChanges()"></ng-container>
-    <p>Component Two</p>
     <button (click)="({})">ComponentTwo</button>
+    <p>Component Two</p>
   `
 })
 export class TwoComponent {
