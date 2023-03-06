@@ -1,9 +1,20 @@
+
 .content {
     display: flex;
-    justify-content: space-between;
-    .one, .two {
-        width: 47%;
-        border: 5px solid blue;
-        padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    .components {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .one, .two {
+            width: 45%;
+            border: 5px solid blue;
+            padding-top: 30px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 30px;
+
+        }
     }
 }

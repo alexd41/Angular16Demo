@@ -2,8 +2,21 @@
     <div class="row">
         <div class="col-12 content">
             <ng-container *ngIf="logDetectChanges()"></ng-container>
-            <button (click)="({})">App Root</button>
-            <p> App Root</p>
+            <div class="top-section">
+                <div class="one-counter">
+                    <button (click)="signalCounter()">Root -> One</button>
+                    <p>Signal</p>
+                </div>
+                <div class="root">
+                    <button (click)="({})">App Root</button>
+                    <p> App Root</p>
+                </div>
+                <div class="two-counter">
+                    <button (click)="observableCounter()">Root -> Two</button>
+                    <p>Observable</p>
+                </div>
+            </div>
+            
             <div class="homepage">
                 <app-homepage></app-homepage>
             </div>

@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
   template: `
     <ng-container *ngIf="logDetectChanges()"></ng-container>
-    <button (click)="({})">HomeComponent</button>
-    <p> Home</p>
     <div class="content">
-      <div class="one"> <app-one></app-one> </div>
-      <div class="two"> <app-two></app-two> </div>
+      <button (click)="({})">HomeComponent</button>
+      <p> Home</p>
+    
+      <div class="components">
+        <div class="one"> <app-one></app-one> </div>
+        <div class="two"> <app-two></app-two> </div>
+      </div>
     </div>
   `,
-  styleUrls: ['./homepage.component.less']
+  styleUrls: ['./homepage.component.less'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomepageComponent {
   logDetectChanges() {

@@ -1,0 +1,10 @@
+<ng-container *ngIf="logDetectChanges()"></ng-container>
+<div class="box">
+    <div class="left">
+        <button (click)="({})">ComponentTwo</button>
+        <p>Component Two</p>
+    </div>
+    <div class="right">
+        <p><strong>Observable Counter</strong>: {{clickCount$ | async}}</p>
+    </div>
+</div>

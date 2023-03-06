@@ -6,6 +6,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { OneComponent } from './homepage/one/one.component';
 import { TwoComponent } from './homepage/two/two.component';
 import { ButtonComponent } from './homepage/one/button/button.component';
+import { ServiceService } from './service.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { ButtonComponent } from './homepage/one/button/button.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    ServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
