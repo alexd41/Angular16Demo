@@ -1,6 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 content">
+            <ng-container *ngIf="logDetectChanges()"></ng-container>
+            <button (click)="({})">App Root</button>
+            <p> App Root</p>
+            <div class="homepage">
+                <app-homepage></app-homepage>
+            </div>
         </div>
     </div>
 </div>

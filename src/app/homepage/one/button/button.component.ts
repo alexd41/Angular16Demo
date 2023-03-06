@@ -2,9 +2,15 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.less']
+  template: `
+    <ng-container *ngIf="logDetectChanges()"></ng-container>
+    <button (click)="({})">AppButton</button>
+    <p>Button</p>
+  `
 })
 export class ButtonComponent {
-
+  logDetectChanges() {
+    console.log('AppButton has been rendered');
+    return true;
+  }
 }

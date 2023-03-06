@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,8 @@ import { Component, signal } from '@angular/core';
 export class AppComponent {
   title = 'angular-16';
 
-  constructor() {
+  logDetectChanges() {
+    console.log('App Root has been rendered');
+    return true;
   }
 }
