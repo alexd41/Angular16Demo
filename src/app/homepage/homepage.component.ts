@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <ng-container *ngIf="logDetectChanges()"></ng-container>
     <div class="content">
       <button (click)="({})">HomeComponent</button>
-      <p> Home</p>
+      <p>Home</p>
     
       <div class="components">
         <div class="one"> <app-one></app-one> </div>

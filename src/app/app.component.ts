@@ -12,7 +12,6 @@ export class AppComponent {
   private _observableCounter = 0;
   private _signalCounter = 0;
 
-
   constructor(private service: ServiceService) { }
 
   observableCounter() {

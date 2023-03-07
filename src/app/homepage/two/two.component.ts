@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ServiceService } from 'src/app/service.service';
 
@@ -13,9 +13,10 @@ export class TwoComponent implements OnInit, OnDestroy {
   clickCount$: Observable<number>;
 
   private _subscription = new Subscription();
-  private counter = 0;
+  counter = 0;
 
-  constructor(private service: ServiceService) {
+  constructor(private service: ServiceService,
+    private changeDetectorRef: ChangeDetectorRef) {
     this.clickCount$ = this.service.counterSubject$;
   }
 
@@ -23,6 +24,7 @@ export class TwoComponent implements OnInit, OnDestroy {
     this._subscription.add(
       this.service.counterSubject$.subscribe((value) => { 
         this.counter = value; 
+        // this.changeDetectorRef.markForCheck();
       })
     );
   }

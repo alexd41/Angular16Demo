@@ -3,20 +3,19 @@
         <div class="col-12 content">
             <ng-container *ngIf="logDetectChanges()"></ng-container>
             <div class="top-section">
-                <div class="one-counter">
-                    <button (click)="signalCounter()">Root -> One</button>
-                    <p>Signal</p>
+                <div class="box">
+                    <button (click)="signalCounter()">Fire!</button>
+                    <p>Send signal to Button Component</p>
                 </div>
-                <div class="root">
+                <div class="box">
                     <button (click)="({})">App Root</button>
                     <p> App Root</p>
                 </div>
-                <div class="two-counter">
-                    <button (click)="observableCounter()">Root -> Two</button>
-                    <p>Observable</p>
+                <div class="box">
+                    <button (click)="observableCounter()">Fire!</button>
+                    <p>Send observable to Component Two</p>
                 </div>
             </div>
-            
             <div class="homepage">
                 <app-homepage></app-homepage>
             </div>
