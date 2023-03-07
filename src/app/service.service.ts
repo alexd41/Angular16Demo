@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ServiceService {
 
   // SIGNAL ZONE

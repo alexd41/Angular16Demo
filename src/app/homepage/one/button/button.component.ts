@@ -4,13 +4,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   selector: 'app-button',
   template: `
     <ng-container *ngIf="logDetectChanges()"></ng-container>
-    <div class="content">
+    <div class="contento">
       <button (click)="({})">ButtonComponent</button>
       <p>ButtonComponent</p>
       <p><strong>Signal Counter</strong>: {{clickCount}}</p>
     </div>
   `, 
-  styles: [` .content { display: flex; flex-direction: column; align-items: center; } `],
+  styles: [` .contento { display: flex; flex-direction: column; align-items: center; } `],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {

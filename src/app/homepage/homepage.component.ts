@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-homepage',
   template: `
     <ng-container *ngIf="logDetectChanges()"></ng-container>
-    <div class="content">
+    <div class="contenty">
       <button (click)="({})">HomeComponent</button>
       <p>Home</p>
     

@@ -23,7 +23,15 @@ export class AppComponent {
     this._signalCounter++;
     this.service.counterSignal.set(this._signalCounter);
   }
-    
+
+  showSignalTab = false;
+  switchToCD() {
+    this.showSignalTab = false;
+  }
+
+  switchToSignal() {
+    this.showSignalTab = true;
+  }
 
   logDetectChanges() {
     console.log('App Root has been rendered');

@@ -1,24 +1,34 @@
+<mat-toolbar class="tool">
+    <button (click)="switchToSignal()">Signal fun</button>
+    <button (click)="switchToCD()">Change Detection</button>
+</mat-toolbar>
 <div class="container">
     <div class="row">
         <div class="col-12 content">
-            <ng-container *ngIf="logDetectChanges()"></ng-container>
-            <div class="top-section">
-                <div class="box">
-                    <button (click)="signalCounter()">Fire!</button>
-                    <p>Send signal to Button Component</p>
+            <ng-container *ngIf="!showSignalTab; else signals">
+                <ng-container *ngIf="logDetectChanges()"></ng-container>
+                <div class="top-section">
+                    <div class="box">
+                        <button (click)="signalCounter()">Fire!</button>
+                        <p>Send signal to Button Component</p>
+                    </div>
+                    <div class="box">
+                        <button (click)="({})">App Root</button>
+                        <p> App Root</p>
+                    </div>
+                    <div class="box">
+                        <button (click)="observableCounter()">Fire!</button>
+                        <p>Send observable to Component Two</p>
+                    </div>
                 </div>
-                <div class="box">
-                    <button (click)="({})">App Root</button>
-                    <p> App Root</p>
+                <div class="homepage">
+                    <app-homepage></app-homepage>
                 </div>
-                <div class="box">
-                    <button (click)="observableCounter()">Fire!</button>
-                    <p>Send observable to Component Two</p>
-                </div>
-            </div>
-            <div class="homepage">
-                <app-homepage></app-homepage>
-            </div>
+            </ng-container>
+            <ng-template #signals>
+                <consumer></consumer>
+                <consumer2></consumer2>
+            </ng-template>
         </div>
     </div>
 </div>

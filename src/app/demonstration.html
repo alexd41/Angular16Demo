@@ -1,0 +1,16 @@
+<div class="container">
+    <!-- <input type="text" title="input" [(ngModel)]="name">  -->
+    <button (click)="signalOperations()">Click</button>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <p>String: {{service.computedSignal()}}</p>
+        </div>
+        <div class="col-4">
+            <p>Number: {{this.service.numberSignal()}}</p>
+        </div>
+        <div class="col-4">
+            <p>Obj: {{JSON.stringify(this.service.objSignal())}}</p>
+        </div>
+    </div>
+</div>
