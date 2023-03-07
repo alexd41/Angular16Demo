@@ -3,9 +3,9 @@ import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-one',
-  templateUrl: './one.component.html',
-  styleUrls: ['./one.component.less'],
-//  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: '../templates/one.component.html',
+  styleUrls: ['../styles/one.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OneComponent {
 
@@ -14,7 +14,6 @@ export class OneComponent {
   get clickCount() {
     return this.service.counterSignal();
   }
-
 
   logDetectChanges() {
     console.log('ComponentOne has been rendered');

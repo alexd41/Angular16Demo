@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     </div>
   `, 
   styles: [` .contento { display: flex; flex-direction: column; align-items: center; } `],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
 
