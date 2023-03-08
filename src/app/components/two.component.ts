@@ -21,16 +21,16 @@ export class TwoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this._subscription.add(
-    //   this.service.counterSubject$.subscribe((value) => { 
-    //     this.counter = value; 
-    //     // this.changeDetectorRef.markForCheck();
-    //   })
-    // );
+    this._subscription.add(
+      this.service.counterSubject$.subscribe((value) => { 
+        this.counter = value; 
+        this.changeDetectorRef.markForCheck();
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    // this._subscription.unsubscribe();
+    this._subscription.unsubscribe();
   }
 
   logDetectChanges() {

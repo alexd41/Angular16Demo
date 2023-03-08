@@ -6,10 +6,10 @@ export class SignalService {
     hello: Signal<string> = signal("Hello");
     stringSignal = signal("Hello"); // SettableSignal
     numberSignal = signal(20);
-    objSignal = signal({ forename: "John", age: this.numberSignal() }); // age will not update when numberSignal changes
-    
+    objSignal = signal({ forename: "John", age: this.numberSignal() },); // age will not update when numberSignal changes
+
     computedSignal = computed(() => this.stringSignal() + ", " + this.objSignal().forename);
-    nestedSignal = computed(() =>  signal({ forename: "John", age: this.numberSignal() }) );
+    nestedSignal = computed(() => signal({ forename: "John", age: this.numberSignal() }));
 }
 
 @Component({ selector: 'consumer', templateUrl: './demonstration.html', changeDetection: ChangeDetectionStrategy.OnPush })
@@ -19,13 +19,14 @@ export class ConsumerComponent {
         // runs every time derived value of computedSignal() changes
         effect(() => {
             this.service.computedSignal();
+            this.service.nestedSignal();
             this.cdr.markForCheck();
         });
         // setInterval(() => {
-        //     this.signalOperations();
+        //     this.signalOperations();            
         // }, 2500);
     }
-        
+
     private _morning: boolean = true;
     signalOperations() {
         this._morning = !this._morning;
@@ -39,10 +40,11 @@ export class ConsumerComponent {
     // signal: Signal<string> = fromObservable(this.observable$); 
 }
 
-@Component({ selector: 'consumer2', 
-             template: `<button (click)="age()">Age John</button>
-                        John's age squared: {{this.signalception()[0]()()}}` 
-            })
+@Component({
+    selector: 'consumer2',
+    template: `<button (click)="age()">Age John</button>
+                        John's age squared: {{this.signalception()[0]()()}}`
+})
 export class Consumer2Component {
     constructor(public service: SignalService) {
         effect(() => console.log("Consumer2", this.service.computedSignal().toUpperCase()));

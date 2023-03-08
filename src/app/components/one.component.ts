@@ -19,10 +19,6 @@ export class OneComponent {
     this.cdr.markForCheck();
   }
 
-  // get clickCount() {
-  //   return this.service.counterSignal();
-  // }
-
   logDetectChanges() {
     console.log('ComponentOne has been checked');
     return true;
