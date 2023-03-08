@@ -1,8 +1,10 @@
 <ng-container *ngIf="logDetectChanges()"></ng-container>
 <div class="top-section">
     <button (click)="({})">ComponentOne</button>
+    <!-- <button (click)="something()">detectChanges</button>
+    <button (click)="anotherThing()">markForCheck</button> -->
     <p>Component One</p>
 </div>
 <div class="contentt">
-    <app-button [clickCount]="clickCount"></app-button>
+    <app-button [clickCountBtn]="service.counterSignal()"></app-button>
 </div>

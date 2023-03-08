@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, OnDestroy, OnInit } from '@angular/core';
+import { map, Observable, Subscription, take } from 'rxjs';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-two',
   templateUrl: '../templates/two.component.html',
   styleUrls: ['../styles/two.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TwoComponent implements OnInit, OnDestroy {
 
@@ -34,7 +34,7 @@ export class TwoComponent implements OnInit, OnDestroy {
   }
 
   logDetectChanges() {
-    console.log('ComponentTwo has been rendered');
+    console.log('ComponentTwo has been checked');
     return true;
   }
 }

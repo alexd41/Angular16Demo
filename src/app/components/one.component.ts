@@ -1,22 +1,30 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-one',
   templateUrl: '../templates/one.component.html',
   styleUrls: ['../styles/one.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OneComponent {
 
-  constructor(private service: ServiceService) { }
+  constructor(protected service: ServiceService, private cdr: ChangeDetectorRef) { }
 
-  get clickCount() {
-    return this.service.counterSignal();
+  something(){
+    this.cdr.detectChanges();
   }
 
+  anotherThing(){
+    this.cdr.markForCheck();
+  }
+
+  // get clickCount() {
+  //   return this.service.counterSignal();
+  // }
+
   logDetectChanges() {
-    console.log('ComponentOne has been rendered');
+    console.log('ComponentOne has been checked');
     return true;
   }
 }

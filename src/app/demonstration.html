@@ -1,16 +1,20 @@
 <div class="container">
-    <!-- <input type="text" title="input" [(ngModel)]="name">  -->
-    <button (click)="signalOperations()">Next day</button>
+    Component 1 (OnPush)
     <hr>
     <div class="row">
-        <div class="col-4">
-            <p>String: {{service.computedSignal()}}</p>
+        <div class="col-3">
+            <p>ComputedSignal: {{service.computedSignal()}}</p>
         </div>
-        <div class="col-4">
-            <p>Number: {{this.service.numberSignal()}}</p>
+        <div class="col-3">
+            <p>NumberSignal: {{this.service.numberSignal()}}</p>
         </div>
-        <div class="col-4">
-            <p>Obj: {{JSON.stringify(this.service.objSignal())}}</p>
+        <div class="col-3">
+            <p>ObjSignal: {{JSON.stringify(this.service.objSignal())}}</p>
+        </div>
+        <div class="col-3">
+            <p>nestedSignal: {{JSON.stringify(this.service.nestedSignal()())}}</p>
         </div>
     </div>
 </div>
+<hr>
+Component 2 (Default)

@@ -5,7 +5,7 @@ import { ServiceService } from '../service.service';
   selector: 'app-root',
   templateUrl: '../templates/app.component.html',
   styleUrls: ['../styles/app.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'angular-16';
@@ -24,7 +24,7 @@ export class AppComponent {
     this.service.counterSignal.set(this._signalCounter);
   }
 
-  showSignalTab = false;
+  showSignalTab = true;
   switchToCD() {
     this.showSignalTab = false;
   }
@@ -34,7 +34,7 @@ export class AppComponent {
   }
 
   logDetectChanges() {
-    console.log('App Root has been rendered');
+    console.log('App Root has been checked');
     return true;
   }
 }

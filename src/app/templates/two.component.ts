@@ -1,1 +1,0 @@
-export default "<ng-container *ngif=\"logDetectChanges()\"></ng-container><div class=\"box\"><div class=\"top\"><button (click)=\"({})\">ComponentTwo</button><p>Component Two</p></div></div><div class=\"bottom\"><!-- <p><strong>Observable Counter</strong>: {{counter}}</p> --><p><strong>Observable Counter</strong>: {{clickCount$ | async}}</p></div>"

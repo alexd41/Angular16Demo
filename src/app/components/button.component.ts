@@ -2,23 +2,16 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  template: `
-    <ng-container *ngIf="logDetectChanges()"></ng-container>
-    <div class="contento">
-      <button (click)="({})">ButtonComponent</button>
-      <p>ButtonComponent</p>
-      <p><strong>Signal Counter</strong>: {{clickCount}}</p>
-    </div>
-  `, 
+  templateUrl: '../templates/button.component.html', 
   styles: [` .contento { display: flex; flex-direction: column; align-items: center; } `],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
 
-  @Input() clickCount: number = 0;
+  @Input() clickCountBtn: number = 0;
   
   logDetectChanges() {
-    console.log('ButtonComponent has been rendered');
+    console.log('ButtonComponent has been checked');
     return true;
   }
 }
