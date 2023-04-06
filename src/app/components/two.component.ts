@@ -6,7 +6,7 @@ import { ServiceService } from 'src/app/service.service';
   selector: 'app-two',
   templateUrl: '../templates/two.component.html',
   styleUrls: ['../styles/two.component.less'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TwoComponent implements OnInit, OnDestroy {
 

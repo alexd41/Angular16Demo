@@ -1,5 +1,12 @@
 import { Observable } from "rxjs";
-import { Component, computed, Injectable, signal, effect, Input, Signal, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
+import { Component, 
+         computed, 
+         Injectable, 
+         signal, 
+         effect,  
+         Signal, 
+         ChangeDetectionStrategy } from "@angular/core";
+import { fromSignal, fromObservable } from '@angular/core/rxjs-interop'
 
 @Injectable({ providedIn: 'root' })
 export class SignalService {
@@ -15,12 +22,11 @@ export class SignalService {
 @Component({ selector: 'consumer', templateUrl: './demonstration.html', changeDetection: ChangeDetectionStrategy.OnPush })
 export class ConsumerComponent {
     readonly JSON = JSON;
-    constructor(public service: SignalService, private cdr: ChangeDetectorRef) {
+    constructor(public service: SignalService) {
         // runs every time derived value of computedSignal() changes
         effect(() => {
             this.service.computedSignal();
             this.service.nestedSignal();
-            this.cdr.markForCheck();
         });
         // setInterval(() => {
         //     this.signalOperations();            
@@ -35,9 +41,9 @@ export class ConsumerComponent {
         this.service.objSignal.mutate((obj) => { obj.age = this.service.numberSignal() });
     }
 
-    // Potential interoperability with RxJS
-    // observable$ : Observable<string> = fromSignal(this.service.stringSignal);
-    // signal: Signal<string> = fromObservable(this.observable$); 
+    //Potential interoperability with RxJS
+    observable$ : Observable<string> = fromSignal(this.service.stringSignal);
+    signal: Signal<string> = fromObservable(this.observable$); 
 }
 
 @Component({

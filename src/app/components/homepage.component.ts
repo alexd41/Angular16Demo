@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
   selector: 'app-homepage',
   templateUrl: '../templates/homepage.component.html',
   styleUrls: ['../styles/homepage.component.less'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomepageComponent {
   logDetectChanges() {

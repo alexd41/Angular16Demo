@@ -5,7 +5,7 @@ import { ServiceService } from 'src/app/service.service';
   selector: 'app-one',
   templateUrl: '../templates/one.component.html',
   styleUrls: ['../styles/one.component.less'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OneComponent {
 
