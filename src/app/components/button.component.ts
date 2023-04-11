@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-button',
@@ -9,7 +10,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ButtonComponent {
 
   @Input() clickCountBtn: number = 0;
-  
+
+  constructor(protected service: ServiceService) {}
+
   logDetectChanges() {
     console.log('ButtonComponent has been checked');
     return true;

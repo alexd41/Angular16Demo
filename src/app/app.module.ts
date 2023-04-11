@@ -9,10 +9,12 @@ import { OneComponent } from './components//one.component';
 import { TwoComponent } from './components//two.component';
 import { ButtonComponent } from './components/button.component';
 import { Consumer2Component, ConsumerComponent } from './demonstration';
+import { AppyComponent } from './hello.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppyComponent,
     HomepageComponent,
     OneComponent,
     TwoComponent,

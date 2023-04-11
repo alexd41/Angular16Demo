@@ -1,27 +1,30 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: '../templates/app.component.html',
   styleUrls: ['../styles/app.component.less'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'angular-16';
   private _observableCounter = 0;
-  private _signalCounter = 0;
 
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private cdr: ChangeDetectorRef) { }
 
   observableCounter() {
     this._observableCounter++;
     this.service.counterSubject = this._observableCounter;
+    this.cdr.detectChanges();
   }
 
   signalCounter() {
-    this._signalCounter++;
-    this.service.counterSignal.set(this._signalCounter);
+    console.log(this.service.counterSignal());
+    this.service.counterSignal.update(n => n + 1);
+    console.log(this.service.counterSignal());
+    this.cdr.detectChanges();
+
   }
 
   showSignalTab = true;

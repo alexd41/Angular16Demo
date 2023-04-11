@@ -42,23 +42,25 @@ export class ConsumerComponent {
     }
 
     //Potential interoperability with RxJS
-    observable$ : Observable<string> = fromSignal(this.service.stringSignal);
-    signal: Signal<string> = fromObservable(this.observable$); 
+    // observable$ : Observable<string> = fromSignal(this.service.stringSignal);
+    // signal: Signal<string> = fromObservable(this.observable$); 
 }
 
 @Component({
     selector: 'consumer2',
     template: `<button (click)="age()">Age John</button>
-                        John's age squared: {{this.signalception()[0]()()}}`
+                        John's age squared: {{this.signalception()[0]()()}}`,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Consumer2Component {
     constructor(public service: SignalService) {
         effect(() => console.log("Consumer2", this.service.computedSignal().toUpperCase()));
     }
-
+    
     signalception = signal([signal(computed(() => this.service.numberSignal() ** 2))]);
-
+    
     age() {
+        console.log("Hello mate");
         this.service.numberSignal.set(this.signalception()[0]()());
         this.service.objSignal.mutate((obj) => { obj.forename = "Old Man" });
     }
